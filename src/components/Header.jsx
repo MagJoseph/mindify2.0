@@ -19,7 +19,7 @@ const Header = ({ authenticated, user, handleLogOut }) => {
     <nav>
       <Link to="/">Home</Link>
       <Link to="/register">Register</Link>
-      <Link to="/signin">Sign In</Link>
+      <Link to="/login">Log In</Link>
     </nav>
   )
 
