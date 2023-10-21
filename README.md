@@ -1,3 +1,4 @@
+
 # Mindify_Frontend
 
 ## Date: 4/15/2022
@@ -62,3 +63,4 @@ Mindify is a one stop shop for all your mental, emotional, and physical needs. E
 ***
 ##### Image credits:
 #####  The Yoga Collaborative, SHRM,  Starmark Fitness Studio,  Gaia Herbs, Everyday Health, News Medical, Quote Fancy, Marcus Woodbrirge, Daniel Blah
+
