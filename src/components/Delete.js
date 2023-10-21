@@ -1,27 +1,27 @@
 import React from 'react'
-import { useParams } from 'react-router-dom'
-import axios from 'axios'
+import Client from '../services/api'
 import { useNavigate } from 'react-router-dom'
 
 
 
-const Delete = () => {
+
+const Delete = (props) => {
   
-  let { id } = useParams()
   let navigate = useNavigate()
 
   const deletePost = async () => {
-        await axios.delete(`http://localhost:3001/posts/${id}`);
+        await Client.delete(`posts/${props.postId}`);
   }
 
    const handleDelete = () => {
       deletePost()
-       navigate('/postspage')
+       navigate('/posts')
+       window.location.reload(false)
    }
 
   return (
-    <div>
-    <button className="del-btn" onClick={handleDelete}>Delete Post</button>
+    <div className='centered'>
+    <button className="s-btn" onClick={handleDelete}>Delete Post</button>
     </div>
   )
 }

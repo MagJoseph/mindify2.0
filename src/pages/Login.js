@@ -1,12 +1,17 @@
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { SignInUser } from '../services/Auth'
-import Sidebar from '../components/Sidebar'
+
+
+import Container from "@mui/material/Container";
+import Stack from "@mui/material/Stack";
+import Button from "@mui/material/Button";
+
 
 const Login = (props) => {
     let navigate = useNavigate()
 
-    const [formValues, setFormValues] = useState({ email: '', password: '' })
+    const [formValues, setFormValues] = useState({ username: '', password: '' })
 
     const handleChange = (e) => {
         setFormValues({ ...formValues, [e.target.name]: e.target.value })
@@ -16,44 +21,80 @@ const Login = (props) => {
         e.preventDefault()
         const payload = await SignInUser(formValues)
         setFormValues({
-        email: "",
+        username: "",
         password: "",
         })
-        props.setUser(payload)
+        console.log(payload.id)
+        localStorage.setItem('user', payload.id)        
+          props.setTeacher(payload)
         props.toggleAuthenticated(true)
-        navigate('/')
+         navigate('/posts')
     }
+
+    const handleHome = () => navigate("/");
+
     return (
-        <div>
-            <Sidebar />
-            <div className='login'> 
-                <form className='log' onSubmit={handleSubmit}>
-                    <div className='input-wrapper'>
-                        <label htmlFor='email'>Email</label>
-                        <input 
-                            onChange={handleChange}
-                            name="email"
-                            type="email"
-                            placeholder="YourEmail@example.com"
-                            value={formValues.email}
-                            required
-                        />
-                    </div>
-                    <div className="input-wrapper">
-                        <label htmlFor="password">Password</label>
-                        <input
-                        onChange={handleChange}
-                        type="password"
-                        name="password"
-                        value={formValues.password}
-                        required
-                        />
-                    </div>
-                    <button disabled={!formValues.email || !formValues.password}>Log In</button>
-                </form> 
-            </div>
-        </div>
-    )
+      <div className="home-cont">
+        <Container sx={{ py: 3 }} maxWidth="md">
+          <Stack direction="column" spacing={2}>
+            <form onSubmit={handleSubmit}>
+              <div className="login-container">
+                <div className="landing-title"> MINDIFY</div>
+                <input
+                  className="input"
+                  onChange={handleChange}
+                  name="username"
+                  type="text"
+                  placeholder="Your Username"
+                  value={formValues.username}
+                  required
+                  style={{ height: 30 }}
+                />
+                <input
+                  className="input"
+                  onChange={handleChange}
+                  type="password"
+                  name="password"
+                  placeholder="Your Password"
+                  value={formValues.password}
+                  required
+                  style={{ height: 30 }}
+                />
+              </div>
+              <button
+                className="new-button"
+                style={{
+                  backgroundImage:
+                    "linear-gradient(to right,  #8A2387, #E94057, #F27121)",
+                  padding: 10,
+                  borderRadius: 5,
+                  fontSize: 14,
+                  color: "#fff",
+                  width: 140,
+                }}
+                disabled={!formValues.username || !formValues.password}
+              >
+                LOGIN
+              </button>
+              <Button
+                className="hov"
+                variant="outlined"
+                style={{
+                  borderColor: "#8A2387",
+                  color: "#8A2387",
+                  backgroundColor: "white",
+                  paddingLeft: 30,
+                  paddingRight: 30,
+                }}
+                onClick={handleHome}
+              >
+                GO BACK
+              </Button>
+            </form>
+          </Stack>
+        </Container>
+      </div>
+    );
 }
 
 export default Login

@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
-import Axios from 'axios'
+import Client from '../services/api'
 import PostItem from "../components/PostItem"
-import Sidebar from "../components/Sidebar"
+
 
 
 const Profile = (props) => {
@@ -11,7 +11,7 @@ const Profile = (props) => {
 
     useEffect(() => {
       const makeApiCall = async () => {
-        let res = await Axios.get('http://localhost:3001/')
+        let res = await Client.get(``)
         setPosts(res.data.posts)
       }
       makeApiCall();
@@ -19,7 +19,6 @@ const Profile = (props) => {
 
     return (
         <div>
-            <Sidebar />
             <div>
                 <h1>{teacher.username}</h1>
                 <h2>{teacher.firstName}{teacher.lastName}</h2>
@@ -31,7 +30,6 @@ const Profile = (props) => {
                 <PostItem 
                     key={post._id}
                     post={post.content}
-                    // user={tweet.user_id}
                     timeStamp={post.createdAt}
                     {...post}
                 />
