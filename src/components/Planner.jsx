@@ -1,11 +1,21 @@
 import React from 'react'
 import { useState, useEffect } from 'react'
+import { useNavigate } from "react-router-dom";
+
 import PlannerItem from './PlannerItem'
-import Calendar from 'react-calendar'
-import 'react-calendar/dist/Calendar.css';
+
+import Container from "@mui/material/Container";
+import Stack from "@mui/material/Stack";
+import Button from "@mui/material/Button";
+import Typography from "@mui/material/Typography";
+import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
+import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
+import { DatePicker } from "@mui/x-date-pickers/DatePicker";
 
 
 const Planner = () => {
+
+  const navigate = useNavigate()
 
     //get the current date
     const current = new Date();
@@ -26,7 +36,8 @@ const Planner = () => {
             event.preventDefault()
           let newList = [...goals, getGoal] 
           console.log(newList)
-              setGoals(newList) 
+          setGoals(newList) 
+          document.getElementById("input").value = "";
              
         }
      
@@ -40,6 +51,7 @@ const Planner = () => {
            let goalList = [...goals] 
            goalList.splice(index, 1)
            setGoals(goalList)
+           
          }
          
    
@@ -48,24 +60,75 @@ const Planner = () => {
        localStorage.setItem("goals", JSON.stringify(goals))
    }, [goals])
  
+  const handleCalendar = (posts) => {
+    navigate(`/calendar`);
+  };
  
   return (
-    <div className="goals-container">
-        
-         <form className="goals-form">
-         <div className="date">{getDate}</div>
-         <h3 className="title">Your goals for this week:</h3>
-      <input className="input3" type="text" name="goal" onChange={handleChange}/>
-      <button className="g-btn" onClick={(e) => addGoal(e) }>Add</button>
-      <PlannerItem  goals={goals}  removeGoal={removeGoal}/>
-     
-      </form>
-      <div className="cal-wrapper">
-      <Calendar className="calendar"  onChange={setDate} value={date} />
-      </div>
-      <img className="quote" src=" https://quotefancy.com/media/wallpaper/3840x2160/822-Nelson-Mandela-Quote-It-always-seems-impossible-until-it-s-done.jpg"></img>
+    <div className="home-cont">
+      <Container sx={{ py: 3 }} maxWidth="md">
+        <Stack direction="column" spacing={2} justifyContent="center">
+          <LocalizationProvider dateAdapter={AdapterDayjs}>
+            <div className="centered">
+              <DatePicker
+                label="Select"
+                sx={{
+                  width: 270,
+                  margin: "auto",
+                }}
+              />
+            </div>
+          </LocalizationProvider>
+          <Typography variant="h4" style={{ color: "#8A2387" }}>
+            Plan Your Day
+          </Typography>
+          <form className="centered">
+            <input
+              id="input"
+              className="input"
+              type="text"
+              name="goal"
+              onChange={handleChange}
+              style={{ height: 30 }}
+            />
+            <button
+              className="new-button"
+              style={{
+                backgroundImage:
+                  "linear-gradient(to right,  #8A2387, #E94057, #F27121)",
+                padding: 10,
+                borderRadius: 5,
+                fontSize: 14,
+                color: "#fff",
+                width: 150,
+              }}
+              onClick={(e) => addGoal(e)}
+            >
+              Add
+            </button>
+            <PlannerItem goals={goals} removeGoal={removeGoal} />
+          </form>
+          <br />
+          <br />
+          <Button
+            className="hov"
+            variant="contained"
+            style={{
+              backgroundImage:
+                "linear-gradient(to right,  #8A2387, #E94057, #F27121)",
+              paddingRight: 35,
+              paddingLeft: 35,
+              width: 150,
+              margin: "auto",
+            }}
+            onClick={handleCalendar}
+          >
+            CALENDAR
+          </Button>
+        </Stack>
+      </Container>
     </div>
-  )
+  );
 }
  
 export default Planner

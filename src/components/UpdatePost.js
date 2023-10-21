@@ -3,6 +3,11 @@ import Client from '../services/api'
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 
+import Container from "@mui/material/Container";
+import Typography from "@mui/material/Typography";
+import Stack from "@mui/material/Stack";
+import Button from "@mui/material/Button";
+
 
 const Update = (props) => {
     let navigate = useNavigate()
@@ -31,42 +36,77 @@ const handleSubmit= (e) => {
      navigate('/posts')
      window.location.reload(false)
 }
+  
+  const handleHome = () => navigate("/posts");
 
   return (
     <div className="home-cont">
-      <div className="comment-container">
-        <h2 className="comment-form">Update Your post</h2>
-        <form className="submit-container" onSubmit={handleSubmit}>
-          <input
-            className="input"
-            type="text"
-            title="title"
-            onChange={(e) => {
-              setTitle(e.target.value);
-            }}
-            placeholder="Title"
-          />
-          <input
-            className="input"
-            type="text"
-            title="title"
-            onChange={(e) => {
-              setContent(e.target.value);
-            }}
-            placeholder="Content"
-          />
-          <input
-            className="input"
-            type="text"
-            image="image"
-            onChange={(e) => {
-              setImgUrl(e.target.value);
-            }}
-            placeholder="imgUrl"
-          />
-          <button className="s-btn">Submit</button>
-        </form>
-      </div>
+      <Container sx={{ py: 3 }} maxWidth="md">
+        <Stack direction="column" spacing={2}>
+          <Typography variant="h4" style={{ color: "#8A2387" }}>
+            Update your post
+          </Typography>
+          <form className="centered" onSubmit={handleSubmit}>
+            <input
+              className="new-input"
+              type="text"
+              title="title"
+              onChange={(e) => {
+                setTitle(e.target.value);
+              }}
+              placeholder="Title"
+              style={{ height: 35 }}
+            />
+            <textarea
+              className="new-input"
+              type="text"
+              title="title"
+              onChange={(e) => {
+                setContent(e.target.value);
+              }}
+              placeholder="Content"
+              style={{ height: 90 }}
+            />
+            <input
+              className="new-input"
+              type="text"
+              image="image"
+              onChange={(e) => {
+                setImgUrl(e.target.value);
+              }}
+              placeholder="Image Url"
+              style={{ height: 35 }}
+            />
+            <button
+              className="new-button"
+              style={{
+                backgroundImage:
+                  "linear-gradient(to right,  #8A2387, #E94057, #F27121)",
+                padding: 10,
+                borderRadius: 5,
+                fontSize: 14,
+                color: "#fff",
+                width: 200,
+              }}
+            >
+              SUBMIT
+            </button>
+            <Button
+              className="hov"
+              variant="outlined"
+              style={{
+                borderColor: "#8A2387",
+                color: "#8A2387",
+                backgroundColor: "white",
+                width: 200,
+              }}
+              onClick={handleHome}
+            >
+              CANCEL
+            </Button>
+          </form>
+        </Stack>
+      </Container>
     </div>
   );
 }

@@ -4,6 +4,10 @@ import PostItem from "../components/PostItem"
 import { useNavigate } from 'react-router-dom'
 import Delete from '../components/Delete'
 import UpdatePost from '../components/UpdatePost'
+import Typography from "@mui/material/Typography";
+import Button from "@mui/material/Button";
+import Stack from "@mui/material/Stack";
+import Container from "@mui/material/Container";
 
 
 const MyProfile = (props) => {
@@ -23,13 +27,14 @@ const MyProfile = (props) => {
       }
       makeApiCall();
       const teacherCall = async () => {
-        let res = await Client.get(`${teacherCallL}`)
+        let res = await Client.get(`users/${teacherCallL}`)
         setTeacherInfo(res.data)
       }
       teacherCall();
       
     }, [])
 
+  const handleLogin = () => navigate("/login");
 
     return posts && teacherInfo ? (
       <div>
@@ -59,7 +64,33 @@ const MyProfile = (props) => {
         </div>
       </div>
     ) : (
-      <div></div>
+      <div>
+        {" "}
+        <Container sx={{ py: 3 }} maxWidth="md">
+          <Stack direction="column" spacing={2} justifyContent="center" textAlign="center">
+            <Typography variant="h4" style={{ color: "#8A2387", marginBottom: 20 }}>
+              Please log in to see your profile
+            </Typography>
+            <Button
+              className="hov"
+              variant="outlined"
+              style={{
+                backgroundImage:
+                  "linear-gradient(to right,  #8A2387, #E94057, #F27121)",
+                color: "#FFF",
+                paddingLeft: 35,
+                paddingRight: 35,
+                border: "none",
+                margin: "auto",
+                width: 200
+              }}
+              onClick={handleLogin}
+            >
+              Login
+            </Button>
+          </Stack>
+        </Container>
+      </div>
     );
 }
 

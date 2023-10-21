@@ -3,6 +3,12 @@ import { useState } from 'react'
 import Client from '../services/api'
 import { useNavigate, useParams } from 'react-router-dom'
 
+
+import Container from "@mui/material/Container";
+import Typography from "@mui/material/Typography";
+import Stack from "@mui/material/Stack";
+import Button from "@mui/material/Button";
+
 const CommentsForm = () => {
   
     let navigate = useNavigate()
@@ -36,34 +42,68 @@ let { id } = useParams()
     getNewComment()
     navigate(`/posts/postdetail/${id}`)
     window.location.reload(false)
-   
-    
-}
+  }
+  
+  const goBack = () => {
+    navigate(`/posts/postdetail/${id}`);
+  }
 
     return (
       <div className="home-cont">
-        <div className="comment-container">
-          <h2 className="comment-form">Add Your Comment</h2>
-          <form className="submit-container" onSubmit={submitForm}>
-            <input
-              className="input comm"
-              type="text"
-              value={newComment.name}
-              onChange={handleChange}
-              name={"name"}
-              placeholder={"Your name here"}
-            />
-            <input
-              className="input comm1"
-              type="text"
-              value={newComment.content}
-              onChange={handleChange}
-              name={"content"}
-              placeholder={"Your comment here"}
-            />
-            <button className="s-btn">Submit</button>
-          </form>
-        </div>
+        <Container sx={{ py: 3 }} maxWidth="md">
+          <Stack direction="column" spacing={2}>
+            <Typography variant="h4" style={{ color: "#8A2387" }}>
+              We'd love to hear your feedback!
+            </Typography>
+            <form className="centered" onSubmit={submitForm}>
+              <input
+                className="new-input"
+                type="text"
+                value={newComment.name}
+                onChange={handleChange}
+                name={"name"}
+                placeholder={"Your name here"}
+                style={{ height: 35 }}
+              />
+              <textarea
+                className="new-input"
+                type="text"
+                value={newComment.content}
+                onChange={handleChange}
+                name={"content"}
+                placeholder={"Your comment here"}
+                style={{ height: 90 }}
+              />
+              <button
+                className="new-button"
+                style={{
+                  backgroundImage:
+                    "linear-gradient(to right,  #8A2387, #E94057, #F27121)",
+                  padding: 10,
+                  borderRadius: 5,
+                  fontSize: 14,
+                  color: "#fff",
+                  width: 200
+                }}
+              >
+                SUBMIT
+              </button>
+              <Button
+                className="hov"
+                variant="outlined"
+                style={{
+                  borderColor: "#8A2387",
+                  color: "#8A2387",
+                  backgroundColor: "white",
+                  width: 200
+                }}
+                onClick={goBack}
+              >
+                Go back
+              </Button>
+            </form>
+          </Stack>
+        </Container>
       </div>
     );
 }
