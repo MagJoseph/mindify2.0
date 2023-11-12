@@ -2,8 +2,7 @@ import React from 'react'
 import Client from '../services/api'
 import { useNavigate } from 'react-router-dom'
 
-
-
+import Button from "@mui/material/Button";
 
 const Delete = (props) => {
   
@@ -20,10 +19,14 @@ const Delete = (props) => {
    }
 
   return (
-    <div className='centered'>
-    <button className="s-btn" onClick={handleDelete}>Delete Post</button>
-    </div>
-  )
+    <Button
+      style={{ color: "#8A2387" }}
+      size="small"
+      onClick={() => handleDelete()}
+    >
+     Delete
+    </Button>
+  );
 }
 
 export default Delete

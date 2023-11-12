@@ -31,7 +31,7 @@ const Login = (props) => {
          navigate('/posts')
     }
 
-    const handleHome = () => navigate("/");
+    const handleRegister = () => navigate("/register");
 
     return (
       <div className="home-cont">
@@ -86,9 +86,9 @@ const Login = (props) => {
                   paddingLeft: 30,
                   paddingRight: 30,
                 }}
-                onClick={handleHome}
+                onClick={handleRegister}
               >
-                GO BACK
+                REGISTER
               </Button>
             </form>
           </Stack>

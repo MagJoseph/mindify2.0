@@ -1,14 +1,12 @@
 import axios from "axios"
 import { useState } from "react"
 
-
+import Typography from "@mui/material/Typography";
 
 const ReplyForm = ({question, setReplies, replies}) => {
     const [ newReply, setNewReply ] = useState({
         content: ''
     })
-
-
 
     const createReply = async () => {
         await axios ({
@@ -32,14 +30,45 @@ const ReplyForm = ({question, setReplies, replies}) => {
         // window.location.reload(true)
     }
 
-    return(
-        <div className="home-cont">
-            <form onSubmit={handleSubmit} className="submit-form">
-                <textarea className="in-cont input" type="text" value={newReply.content} onChange={handleChange} name={'content'} placeholder={'your answer'} />
-                <button className="s-btn">Submit</button>
-            </form>
-        </div>
-    )
+    return (
+        <div className="centered">
+            <br/>
+        <Typography variant="h4" style={{ color: "#8A2387" }}>
+          Your Reply:
+        </Typography>
+        <br />
+        <form onSubmit={handleSubmit} className="centered">
+          <textarea
+            className="new-input"
+            type="text"
+            value={newReply.content}
+            onChange={handleChange}
+            name={"content"}
+            placeholder={"..."}
+            style={{
+              height: 120,
+              width: 400,
+              margin: "auto",
+              border: "1px solid #8A2387"
+            }}
+          />
+          <button
+            className="new-button"
+            style={{
+              backgroundImage:
+                "linear-gradient(to right,  #8A2387, #E94057, #F27121)",
+              padding: 10,
+              borderRadius: 5,
+              fontSize: 14,
+              color: "#fff",
+              width: 200,
+            }}
+          >
+            SUBMIT
+          </button>
+        </form>
+      </div>
+    );
 }
 
 export default ReplyForm

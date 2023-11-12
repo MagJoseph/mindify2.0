@@ -2,7 +2,6 @@ import React from 'react'
 import { useState } from "react";
 import { Link } from "react-router-dom";
 
-
 import AppBar from "@mui/material/AppBar";
 import Toolbar from "@mui/material/Toolbar";
 import IconButton from "@mui/material/IconButton";
@@ -13,7 +12,7 @@ import LocalPostOfficeRoundedIcon from "@mui/icons-material/LocalPostOfficeRound
 import Box from "@mui/material/Box";
 import LogoutIcon from "@mui/icons-material/Logout";
 import VpnKeyIcon from "@mui/icons-material/VpnKey";
-import StarRateIcon from "@mui/icons-material/StarRate";
+import AccountCircle from "@mui/icons-material/AccountCircle";
 
 import Drawer from "@mui/material/Drawer";
 import CloseIcon from "@mui/icons-material/Close";
@@ -21,15 +20,14 @@ import Divider from "@mui/material/Divider";
 import ListItemButton from "@mui/material/ListItemButton";
 import ListItemIcon from "@mui/material/ListItemIcon";
 import ListItemText from "@mui/material/ListItemText";
-import FolderIcon from "@mui/icons-material/Folder";
 import DescriptionIcon from "@mui/icons-material/Description";
+import { Typography } from '@mui/material';
 
 
 
 
 
 const TopBar = ({ authenticated, teacher, handleLogOut }) => {
-
 
 
   //react useState hook to save the current open/close state of the drawer, normally variables dissapear afte the function was executed
@@ -74,9 +72,23 @@ const TopBar = ({ authenticated, teacher, handleLogOut }) => {
             >
               <MenuIcon />
             </IconButton>
-            <div className="corner">
-          
-            </div>
+            {authenticated ? (
+              <div className="corner">
+                <Typography>{teacher.username}</Typography>
+              </div>
+            ) : (
+              <div className="corner" style={{ display: "flex" }}>
+                <Typography variant="h6">Welcome! </Typography>
+
+                <AccountCircle
+                  size="large"
+                  style={{
+                    marginLeft: 5,
+                    padding: 4,
+                  }}
+                />
+              </div>
+            )}
             <Drawer
               //from which side the drawer slides in
               anchor="left"
@@ -123,15 +135,6 @@ const TopBar = ({ authenticated, teacher, handleLogOut }) => {
 
                     <ListItemButton>
                       <ListItemIcon>
-                        <StarRateIcon sx={{ color: "#8A2387" }} />
-                      </ListItemIcon>
-                      <Link className="nav" to="/planner">
-                        <ListItemText className="nav" primary="My Goals" />
-                      </Link>
-                    </ListItemButton>
-
-                    <ListItemButton>
-                      <ListItemIcon>
                         <DescriptionIcon sx={{ color: "#8A2387" }} />
                       </ListItemIcon>
                       <Link className="nav" to="/createpost">
@@ -144,7 +147,7 @@ const TopBar = ({ authenticated, teacher, handleLogOut }) => {
                         <LocalPostOfficeRoundedIcon sx={{ color: "#8A2387" }} />
                       </ListItemIcon>
                       <Link className="nav" to="/questions">
-                        <ListItemText primary="Ask A Question" />
+                        <ListItemText primary="Q&A" />
                       </Link>
                     </ListItemButton>
 
@@ -159,24 +162,6 @@ const TopBar = ({ authenticated, teacher, handleLogOut }) => {
                   </Box>
                 ) : (
                   <Box sx={{ mb: 2 }}>
-                    <ListItemButton>
-                      <ListItemIcon>
-                        <DescriptionIcon sx={{ color: "#8A2387" }} />
-                      </ListItemIcon>
-                      <Link className="nav" to="/">
-                        <ListItemText primary="Register" />
-                      </Link>
-                    </ListItemButton>
-
-                    <ListItemButton className="nav">
-                      <ListItemIcon>
-                        <VpnKeyIcon sx={{ color: "#8A2387" }} />
-                      </ListItemIcon>
-                      <Link className="nav" to="/login">
-                        <ListItemText className="nav" primary="Login" />
-                      </Link>
-                    </ListItemButton>
-
                     <ListItemButton className="nav">
                       <ListItemIcon>
                         <HomeRoundedIcon sx={{ color: "#8A2387" }} />
@@ -197,19 +182,19 @@ const TopBar = ({ authenticated, teacher, handleLogOut }) => {
 
                     <ListItemButton>
                       <ListItemIcon>
-                        <FolderIcon sx={{ color: "#8A2387" }} />
-                      </ListItemIcon>
-                      <Link className="nav" to="/planner">
-                        <ListItemText className="nav" primary="My Goals" />
-                      </Link>
-                    </ListItemButton>
-
-                    <ListItemButton>
-                      <ListItemIcon>
                         <LocalPostOfficeRoundedIcon sx={{ color: "#8A2387" }} />
                       </ListItemIcon>
                       <Link className="nav" to="/questions">
-                        <ListItemText primary="Ask A Question" />
+                        <ListItemText primary="Q&A" />
+                      </Link>
+                    </ListItemButton>
+
+                    <ListItemButton className="nav">
+                      <ListItemIcon>
+                        <VpnKeyIcon sx={{ color: "#8A2387" }} />
+                      </ListItemIcon>
+                      <Link className="nav" to="/login">
+                        <ListItemText className="nav" primary="Login" />
                       </Link>
                     </ListItemButton>
                   </Box>

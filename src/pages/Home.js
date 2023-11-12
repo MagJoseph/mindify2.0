@@ -18,7 +18,7 @@ const Home = () => {
 
   //set post state
   const [posts, setPosts] = useState([])
-   const [searchResults, setSearchResults] = useState([]);
+  const [searchResults, setSearchResults] = useState([]);
   const [searchQuery, setSearchQuery] = useState("");
   const [getResults, setGetResults] = useState(false)
 
@@ -83,7 +83,7 @@ useEffect(() => {
             }}
             type="submit"
           >
-            Search
+            SEARCH
           </button>
         </form>
       </div>

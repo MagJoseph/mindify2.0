@@ -84,7 +84,12 @@ const App = () => {
             path="/posts/postdetail/:id/commentsform"
             element={<CommentsForm />}
           />
-          <Route path="/prof" element={<MyProfile teacher={teacher} />} />
+          <Route
+            path="/prof"
+            element={
+              <MyProfile teacher={teacher} authenticated={authenticated} />
+            }
+          />
 
           <Route path="/planner" element={<Planner />} />
           <Route
@@ -98,7 +103,7 @@ const App = () => {
             }
           />
           <Route path="/questions/new" element={<QuestionsForm />} />
-      <Route path="calendar" element={<MyCalendar/> } />
+          <Route path="calendar" element={<MyCalendar />} />
         </Routes>
       </main>
     </div>
