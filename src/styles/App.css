@@ -8,8 +8,7 @@
   justify-content: center;
   align-items: center;
   text-align: center;
-  margin: 30px 45px;
-  
+  height: 540px;
 }
 
 .home-container {
@@ -367,22 +366,28 @@ label {
 
 
 .landing-container {
-  width: 100%;
-  margin: 0 auto;
+  width: 700px;
+  margin: 20px;
   text-align: center;
   background-image: url('https://images.unsplash.com/photo-1444703686981-a3abbc4d4fe3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2670&q=80');
   background-size: cover;
   height: 380px;
-  font-size: 5rem;
+  font-size: 4rem;
+  background-repeat: no-repeat;
   color: rgb(255, 255, 255);
   border-radius: 15px;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
- 
-  
-}
+ }
+
+@media (max-width: 480px) {
+  .landing-container {
+   width: 400px;
+   font-size: 3rem;
+  }
+ }
 
 .landing-title {
   margin-top: 0 auto;
@@ -395,7 +400,7 @@ label {
 
 @keyframes spaceletters {
   50% {
-    letter-spacing: 3rem;
+    letter-spacing: 1rem;
     color: rgb(156, 101, 244);
   }
 }
@@ -429,13 +434,7 @@ label {
     width: 200px;
   }
 
-  .landing-container {
-    height: 300px;
-    font-size: 2rem;
-    margin-top: 5rem;
-    background-size: 500px 300px;
-    background-repeat: no-repeat;
-  }
+
   
   .landing-title {
     margin: 0 auto;
@@ -807,7 +806,7 @@ box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px !important;
   border: none;
   border-radius: 7px;
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-  width: 50%;
+  width: 350px;
   margin: 10px;
   padding: 5px;
   font-family: Roboto;
@@ -815,7 +814,7 @@ box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px !important;
   }
 
 .login-container {
-  width: 100%;
+  width: 700px;
   margin: 0 auto;
   text-align: center;
   background-image: url('https://images.unsplash.com/photo-1444703686981-a3abbc4d4fe3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2670&q=80');
@@ -828,7 +827,14 @@ box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px !important;
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  padding: 20px;
+  padding-bottom:10px;
+ }
+
+ @media (max-width: 480px) {
+  .login-container {
+   width: 400px;
+   font-size: 3rem;
+  }
  }
 
  textarea:focus, input:focus{

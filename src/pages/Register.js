@@ -99,7 +99,6 @@ const Register = () => {
 
     return (
       <div className="home-cont">
-        <Container sx={{ py: 3 }} maxWidth="md">
           <Stack direction="column" spacing={2}>
             <form className="centered" onSubmit={handleSubmit}>
               <div className="login-container">
@@ -203,7 +202,6 @@ const Register = () => {
               </div>
             </form>
           </Stack>
-        </Container>
       </div>
     );
 }

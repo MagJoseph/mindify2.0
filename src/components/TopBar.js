@@ -78,7 +78,7 @@ const TopBar = ({ authenticated, teacher, handleLogOut }) => {
               </div>
             ) : (
               <div className="corner" style={{ display: "flex" }}>
-                <Typography variant="h6">Welcome! </Typography>
+                <Typography variant="h6">Wholeness! </Typography>
 
                 <AccountCircle
                   size="large"

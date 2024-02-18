@@ -135,10 +135,17 @@ const Question = ({ authenticated, teacher }) => {
                         <div>
                           {question.replies.map((reply) => (
                             <div key={reply.content}>
-                              <Typography style={{ paddingBottom: 18 }}>
-                                <PersonPinIcon className="vertical" />{" "}
-                                {reply.content}
-                              </Typography>
+                              {reply.content ? (
+                                <Typography style={{ paddingBottom: 18 }}>
+                                  <PersonPinIcon className="vertical" />{" "}
+                                  {reply.content}
+                                </Typography>
+                              ) : (
+                                <Typography style={{ paddingBottom: 18 }}>
+                                  <PersonPinIcon className="vertical" />{" "}
+                                  No naswers yet
+                                </Typography>
+                              )}
                               <br />
                             </div>
                           ))}

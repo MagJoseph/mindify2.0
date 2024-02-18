@@ -57,7 +57,7 @@ const App = () => {
         teacher={teacher}
         handleLogOut={handleLogOut}
       />
-      <main>
+     
         <Routes>
           <Route
             path="/login"
@@ -105,7 +105,7 @@ const App = () => {
           <Route path="/questions/new" element={<QuestionsForm />} />
           <Route path="calendar" element={<MyCalendar />} />
         </Routes>
-      </main>
+     
     </div>
   );
 }

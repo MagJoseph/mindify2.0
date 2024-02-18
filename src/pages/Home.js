@@ -60,7 +60,7 @@ useEffect(() => {
   return (
     <div>
       <div className="centered">
-        <form onSubmit={getSearchResults}>
+        <form onSubmit={getSearchResults} className="centered">
           <input
             className="input"
             type="text"
@@ -175,7 +175,6 @@ useEffect(() => {
                     >
                       Edit
                     </Button>
-                   
                   </CardActions>
                 </Card>
               </Grid>
