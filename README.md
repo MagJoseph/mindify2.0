@@ -9,9 +9,6 @@
 
 ***
 
-
-### ***Description***
-
 ![Mind1](src/common/home.png)
 
 ## Description:
