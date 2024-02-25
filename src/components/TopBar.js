@@ -74,7 +74,7 @@ const TopBar = ({ authenticated, teacher, handleLogOut }) => {
             </IconButton>
             {authenticated ? (
               <div className="corner">
-                <Typography>{teacher.username}</Typography>
+                <Typography>Wholeness {teacher.username}!</Typography>
               </div>
             ) : (
               <div className="corner" style={{ display: "flex" }}>

@@ -34,7 +34,7 @@ const ReplyForm = ({questionId, setReplies, replies}) => {
         <div className="centered">
         <form onSubmit={handleSubmit} className="centered">
           <textarea
-            className="new-input"
+            className="text-area"
             type="text"
             value={newReply.content}
             onChange={handleChange}

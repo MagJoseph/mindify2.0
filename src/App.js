@@ -57,55 +57,56 @@ const App = () => {
         teacher={teacher}
         handleLogOut={handleLogOut}
       />
-     
-        <Routes>
-          <Route
-            path="/login"
-            element={
-              <Login
-                setTeacher={setTeacher}
-                toggleAuthenticated={toggleAuthenticated}
-              />
-            }
-          />
-          <Route path="/profile" element={<Profile teacher={teacher} />} />
-          <Route path="/register" element={<Register />} />
-          <Route path="/" element={<Landing />} />
-          <Route path="/postdetail/:id" element={<PostDetails />} />
-          <Route path="/posts/postdetail/:id" element={<PostDetails />} />
-          <Route path="/posts" element={<Home />} />
-          <Route path="/posts/postdetail/:id/update" element={<UpdatePost />} />
-          <Route path="/IPP" element={<IPP />} />
-          <Route
-            path="/createpost"
-            element={<CreatePost teacher={teacher} />}
-          />
-          <Route
-            path="/posts/postdetail/:id/commentsform"
-            element={<CommentsForm />}
-          />
-          <Route
-            path="/prof"
-            element={
-              <MyProfile teacher={teacher} authenticated={authenticated} />
-            }
-          />
 
-          <Route path="/planner" element={<Planner />} />
-          <Route
-            path="/questions"
-            element={
-              <Question
-                authenticated={authenticated}
-                teacher={teacher}
-                handleLogOut={handleLogOut}
-              />
-            }
-          />
-          <Route path="/questions/new" element={<QuestionsForm />} />
-          <Route path="calendar" element={<MyCalendar />} />
-        </Routes>
-     
+      <Routes>
+        <Route
+          path="/login"
+          element={
+            <Login
+              setTeacher={setTeacher}
+              toggleAuthenticated={toggleAuthenticated}
+            />
+          }
+        />
+        <Route path="/profile" element={<Profile teacher={teacher} />} />
+        <Route path="/register" element={<Register />} />
+        <Route path="/" element={<Landing />} />
+        <Route path="/postdetail/:id" element={<PostDetails />} />
+        <Route path="/posts/postdetail/:id" element={<PostDetails />} />
+        <Route
+          path="/posts"
+          element={<Home />}
+          teacher={teacher}
+          authenticated={authenticated}
+        />
+        <Route path="/posts/postdetail/:id/update" element={<UpdatePost />} />
+        <Route path="/IPP" element={<IPP />} />
+        <Route path="/createpost" element={<CreatePost teacher={teacher} />} />
+        <Route
+          path="/posts/postdetail/:id/commentsform"
+          element={<CommentsForm />}
+        />
+        <Route
+          path="/prof"
+          element={
+            <MyProfile teacher={teacher} authenticated={authenticated} />
+          }
+        />
+
+        <Route path="/planner" element={<Planner />} />
+        <Route
+          path="/questions"
+          element={
+            <Question
+              authenticated={authenticated}
+              teacher={teacher}
+              handleLogOut={handleLogOut}
+            />
+          }
+        />
+        <Route path="/questions/new" element={<QuestionsForm />} />
+        <Route path="calendar" element={<MyCalendar />} />
+      </Routes>
     </div>
   );
 }

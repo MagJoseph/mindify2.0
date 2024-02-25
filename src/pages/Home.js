@@ -14,13 +14,15 @@ import Button from "@mui/material/Button";
 
 
 
-const Home = () => {
+const Home = (props) => {
 
-  //set post state
   const [posts, setPosts] = useState([])
   const [searchResults, setSearchResults] = useState([]);
   const [searchQuery, setSearchQuery] = useState("");
   const [getResults, setGetResults] = useState(false)
+
+  const authenticated = props.authenticated;
+  const teacher = props.teacher
 
    const getSearchResults = async (e) => {
      e.preventDefault();
@@ -123,13 +125,15 @@ useEffect(() => {
                     >
                       View
                     </Button>
-                    <Button
-                      style={{ color: "#8A2387" }}
-                      size="small"
-                      onClick={() => editPost(result)}
-                    >
-                      Edit
-                    </Button>
+                    {(authenticated && teacher) &&
+                      <Button
+                        style={{ color: "#8A2387" }}
+                        size="small"
+                        onClick={() => editPost(result)}
+                      >
+                        Edit
+                      </Button>
+                    }
                   </CardActions>
                 </Card>
               </Grid>

@@ -835,6 +835,9 @@ box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px !important;
    width: 400px;
    font-size: 3rem;
   }
+  .text-area {
+    max-width: 300px;
+  }
  }
 
  textarea:focus, input:focus{
@@ -846,6 +849,17 @@ box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px !important;
   border-radius: 7px;
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
   width: 280px;
+  margin: 10px;
+  padding: 5px;
+  font-family: Roboto;
+  resize: none;
+  }
+
+  .text-area {
+  border: none;
+  border-radius: 7px;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  width: 350px;
   margin: 10px;
   padding: 5px;
   font-family: Roboto;
