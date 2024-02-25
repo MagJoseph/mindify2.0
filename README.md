@@ -1,34 +1,23 @@
 
 # Mindify_Frontend
 
-## Date: 4/15/2022
-
-### By: Ifeoluwa adebisi | [LinkedIn](https://www.linkedin.com/in/ifeoluwa-adebisi-b6a9911b7/) | [Github](https://github.com/SEIfeoluwa)
-### Chaz Curlee | [LinkedIn](https://www.linkedin.com/in/chaz-curlee/) | [Github](https://github.com/chazcurlee) 
-### Magdalena Joseph | [LinkedIn](https://www.linkedin.com/in/magdalena-joseph8/) | [Github](https://github.com/MagJoseph) 
-### Ran Kim | [LinkedIn](https://www.linkedin.com/in/rankim/) | [Github](https://github.com/rannkimm) 
+## Recently updated by Magdalena Joseph 2/15/2024
 
 ***
 
-![Mindify](https://github.com/chazcurlee/back-end-prj3/raw/chaz/img/mar-bustos-ARVFsI-32Uk-unsplash.jpg)
+![Mindify](src/common/main.png)
 
 ***
 
 
 ### ***Description***
 
-![Mind1](public/img/mind1.png)
+![Mind1](src/common/home.png)
 
 ## Description:
-Mindify is a one stop shop for all your mental, emotional, and physical needs. Experienced teachers provide great lessons, recipes, and advice via posts. Any student can comment and like these posts.
+Mindify is a one stop shop for all your mental, emotional, and physical needs. Experienced instructors provide great lessons, recipes, and advice via posts. Any user can comment and like these posts. Atfer signing up user can add, update and delete their own posts they would like to share. 
 
-![Mind2](public/img/mind2.png)
-
-![Mind3](public/img/mind3.png)
-
-
-#### [Try Mindify!](https://peaceful-falls-00710.herokuapp.com/)
-
+![Mind2](src/common/post.png)
 
 ***
 
@@ -56,6 +45,11 @@ Mindify is a one stop shop for all your mental, emotional, and physical needs. E
     [] Create user auth for Students
     [] Seperate posts by hashtags to be filtered in the search bar.
     [] Create backend routes for Weekly Goals
+
+### Started as a student project by: Ifeoluwa Adebisi | [LinkedIn](https://www.linkedin.com/in/ifeoluwa-adebisi-b6a9911b7/) | [Github](https://github.com/SEIfeoluwa)
+### Chaz Curlee | [LinkedIn](https://www.linkedin.com/in/chaz-curlee/) | [Github](https://github.com/chazcurlee) 
+### Magdalena Joseph | [LinkedIn](https://www.linkedin.com/in/magdalena-joseph8/) | [Github](https://github.com/MagJoseph) 
+### Ran Kim | [LinkedIn](https://www.linkedin.com/in/rankim/) | [Github](https://github.com/rannkimm) 
 
 ### ***Credits:***
 ##### Article credits: 
